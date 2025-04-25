@@ -1,82 +1,54 @@
-# Real-Time Crypto Price Tracker
+# Crypto Tracker
 
-A responsive React + Redux Toolkit application that tracks real-time cryptocurrency prices using WebSocket connections and managing all state via Redux.
+A real-time cryptocurrency dashboard built with React, Redux Toolkit, and the Binance WebSocket API.  
+It displays live prices, market cap, supply, and 7-day sparkline charts for popular crypto assets.
 
 ## Features
 
-- **Real WebSocket Integration**: Live data from Binance API for real-time price updates
-- **Filtering and Sorting**: Filter and sort assets by price, market cap, and other criteria
-- **localStorage Support**: User preferences and favorites are saved between sessions
-- **Detailed Asset Views**: Comprehensive information pages for each cryptocurrency
-- **Search Functionality**: Quickly find specific cryptocurrencies
-- **Responsive Design**: Works on mobile, tablet, and desktop devices
+- Live price, volume, and 24h change updates via Binance WebSocket
+- Market cap, circulating supply, and max supply via Binance REST API
+- 7-day sparkline charts for each asset
+- Responsive UI with dark mode support
+- Asset images and basic filtering
 
-## Tech Stack
+## Getting Started
 
-- React
-- Redux Toolkit for state management
-- React Router for navigation
-- Recharts for interactive charts
-- Tailwind CSS for styling
-- WebSocket connection to Binance API
+### Prerequisites
 
-## Setup Instructions
+- Node.js (v16 or higher recommended)
+- npm
 
-1. Clone the repository:
-\`\`\`bash
-git clone https://github.com/yourusername/crypto-price-tracker.git
-cd crypto-price-tracker
-\`\`\`
+### Installation
 
-2. Install dependencies:
-\`\`\`bash
+```bash
+git clone https://github.com/yourusername/crypto-tracker.git
+cd crypto-tracker
 npm install
-\`\`\`
+```
 
-3. Start the development server:
-\`\`\`bash
-npm start
-\`\`\`
+### Running the App
 
-4. Open your browser and navigate to `http://localhost:3000`
+```bash
+npm run dev
+```
 
-## Installation Commands
-
-To set up this project from scratch, run the following commands:
-
-\`\`\`bash
-# Create a new React app
-npx create-react-app crypto-price-tracker
-cd crypto-price-tracker
-
-# Install dependencies
-npm install react-redux @reduxjs/toolkit react-router-dom recharts tailwindcss postcss autoprefixer
-
-# Initialize Tailwind CSS
-npx tailwindcss init -p
-\`\`\`
+Visit [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## Project Structure
 
-- `/src/components`: UI components for rendering the crypto data
-- `/src/features`: Redux slices and related functionality
-- `/src/services`: WebSocket and localStorage services
-- `/src/data`: Initial data and constants
+```
+src/
+  components/         # UI components (CryptoTable, Header, etc.)
+  data/               # Initial asset data with images
+  features/assets/    # Redux slice for assets
+  services/           # Binance WebSocket & REST API logic
+  App.jsx             # Main app component
+  main.jsx            # Entry point
+public/
+  images/             # Asset logos (bitcoin.png, ethereum.png, etc.)
+```
 
-## Usage
+## Customization
 
-- **Main Dashboard**: View all cryptocurrencies with real-time price updates
-- **Filtering**: Use the filter panel to narrow down assets by price range, category, etc.
-- **Sorting**: Sort assets by different criteria like price, market cap, or 24h change
-- **Search**: Use the search bar to find specific cryptocurrencies
-- **Favorites**: Mark assets as favorites for quick access
-- **Detailed View**: Click on an asset name to see detailed information and charts
-
-## Future Enhancements
-
-- Add more technical indicators and chart types
-- Implement portfolio tracking functionality
-- Add price alerts and notifications
-- Support for more cryptocurrencies and exchanges
-- Dark/light theme toggle
-# Crypto-tracker-simulator
+- To add more assets, edit `src/data/initialAssets.js` and add the logo to `public/images/`.
+- To change the tracked assets, update the `symbolMap` in `src/services/binanceWebSocket.js`.
